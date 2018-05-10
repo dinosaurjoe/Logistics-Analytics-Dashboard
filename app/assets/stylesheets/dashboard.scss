@@ -17,28 +17,6 @@
     position: absolute;
 }
 
-.spacer {
-  // margin-left: 150px;
-}
-
-.navbar {
-    background-color: white;
-    color: $dark-blue;
-    border: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    margin-bottom: 0px;
-    z-index: 2;
-}
-
-.navbar-brand {
-  .padding-bottom: 10px;
-}
-.navbar-toggle {
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
 .data-list {
   background-color: $dark-blue;
   // color: white;

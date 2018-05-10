@@ -1,0 +1,23 @@
+//CSS for Navbar
+
+.navbar {
+    // background-color: white;
+    color: $dark-blue;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 0px;
+    z-index: 2;
+}
+
+.top {
+  background-color: white;
+}
+
+.navbar-brand {
+  .padding-bottom: 10px;
+}
+.navbar-toggle {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
