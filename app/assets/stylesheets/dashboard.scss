@@ -10,11 +10,23 @@
     line-height: 20px;
     height: 50px;
     color: white;
-    // top: -50px;
     left: 0px;
     height: 20vh;
-    z-index: 100;
     position: absolute;
+}
+
+.user-box>img{
+  // float:right;
+}
+.user-box>h3 {
+  display: inline;
+  float: right;
+}
+
+.user-box>h4 {
+  color: $dark-blue;
+  float:right;
+  display: inline-block;
 }
 
 .data-list {
@@ -26,4 +38,23 @@
 .data {
   background-color: $light-green;
   height: 93vh;
+}
+
+.data-options {
+  position: absolute;
+  top: 200px;
+}
+
+.data-options>ul>li {
+  float: right;
+  padding-right: 10px;
+  list-style-type: none;
+  // display: block;
+}
+.data-options>ul>li>a {
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
 }
