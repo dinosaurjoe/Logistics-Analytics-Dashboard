@@ -9,8 +9,8 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      <%= render partial: "partials/nav"%>
+      <%= render partial: "partials/flash_messages", flash: flash %>
     <%= yield %>
   </body>
 </html>
