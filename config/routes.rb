@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'users', controllers: {sessions: 'users/sessions'}
+  devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
   devise_for :customers, path: 'customers', controllers: {sessions: 'customers/sessions'}
 
   get 'dashboard/index'

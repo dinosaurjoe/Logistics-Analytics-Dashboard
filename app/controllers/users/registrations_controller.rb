@@ -41,13 +41,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  protected
+  private
 
    def user_params
-    params.require(:user).permit(:first_name, :last_name, :biography, :phone_number, :website, :email_show, :profile_picture)
+    params.require(:user).permit(:first_name, :last_name)
   end
 
   def find_user
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 end
