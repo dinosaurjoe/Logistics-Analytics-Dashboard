@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proposal: 
+  user: 
+  customer: 
+  user_confirmation: false
+
+two:
+  proposal: 
+  user: 
+  customer: 
+  user_confirmation: false

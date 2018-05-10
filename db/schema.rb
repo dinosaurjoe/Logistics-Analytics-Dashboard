@@ -10,7 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510145358) do
+ActiveRecord::Schema.define(version: 20180510161839) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.integer "shop_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+    t.index ["shop_id"], name: "index_customers_on_shop_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "proposal"
+    t.integer "user_id"
+    t.integer "customer_id"
+    t.boolean "user_confirmation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_requests_on_customer_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.integer "shop_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "destination"
+    t.string "origin"
+    t.integer "freight_capacity"
+    t.integer "service_value"
+    t.index ["shop_id"], name: "index_shipments_on_shop_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "freight_capacity"
+    t.integer "service_value"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shops_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
