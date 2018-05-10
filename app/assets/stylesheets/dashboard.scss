@@ -2,33 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-box {
-    background-color: $turquoise;
-    float: left;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-    height: 50px;
-    color: white;
-    left: 0px;
-    height: 20vh;
-    position: absolute;
-}
-
-.user-box>img{
-  // float:right;
-}
-.user-box>h3 {
-  display: inline;
-  float: right;
-}
-
-.user-box>h4 {
-  color: $dark-blue;
-  float:right;
-  display: inline-block;
-}
-
 .data-list {
   background-color: $dark-blue;
   // color: white;
@@ -42,7 +15,7 @@
 
 .data-options {
   position: absolute;
-  top: 200px;
+  top: 300px;
 }
 
 .data-options>ul>li {

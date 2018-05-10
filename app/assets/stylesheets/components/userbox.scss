@@ -1,0 +1,40 @@
+
+.user-box {
+    background-color: $turquoise;
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+    color: white;
+    left: 0px;
+    top: 60px;
+    height: 30vh;
+    position: absolute;
+    text-align: center;
+}
+
+
+.user-box>h3 {
+  text-align: center;
+}
+
+.user-box>h4 {
+  color: $dark-blue;
+  text-align: center;
+}
+
+// avatar
+
+.avatar-background {
+  text-align: center;
+  height: 5vh;
+  background-color: $dark-blue;
+  z-index: 2;
+  padding-top: 10px;
+}
+.avatar-large {
+  width: 80px;
+  text-align: center;
+  border-radius: 50%;
+}
