@@ -13,13 +13,29 @@
       </a>
 
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">My Shops</a></li>
-        <li><a href="#">Sign Out</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+    <% if current_user.nil? %>
+      <div class="collapse navbar-collapse" id="bs-nav-demo">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Sign In", new_user_session_path %>
+          </li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">My Shops</a></li>
+          <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                  Sign Out
+              <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <!-- Collect the nav links, forms, and other content for toggling --><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
