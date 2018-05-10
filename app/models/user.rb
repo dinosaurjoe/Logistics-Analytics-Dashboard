@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :shops, dependent: :destroy
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+
   protected
 
   def confirmation_required?

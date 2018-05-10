@@ -2,7 +2,6 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  before_action :find_user
   before_action :authenticate_user!
   # before_action :configure_account_update_params, only: [:update]
   # include Accessible
@@ -41,11 +40,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  protected
 
-   def user_params
-    params.require(:user).permit(:first_name, :last_name, :biography, :phone_number, :website, :email_show, :profile_picture)
-  end
+  private
 
   def find_user
     @user = User.find(params[:id])
