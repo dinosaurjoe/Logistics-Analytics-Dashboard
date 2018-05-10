@@ -1,3 +1,60 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-box {
+    background-color: $turquoise;
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+    color: white;
+    left: 0px;
+    height: 20vh;
+    position: absolute;
+}
+
+.user-box>img{
+  // float:right;
+}
+.user-box>h3 {
+  display: inline;
+  float: right;
+}
+
+.user-box>h4 {
+  color: $dark-blue;
+  float:right;
+  display: inline-block;
+}
+
+.data-list {
+  background-color: $dark-blue;
+  // color: white;
+  height: 93vh;
+}
+
+.data {
+  background-color: $light-green;
+  height: 93vh;
+}
+
+.data-options {
+  position: absolute;
+  top: 200px;
+}
+
+.data-options>ul>li {
+  float: right;
+  padding-right: 10px;
+  list-style-type: none;
+  // display: block;
+}
+.data-options>ul>li>a {
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+}

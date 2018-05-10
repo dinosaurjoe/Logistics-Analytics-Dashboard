@@ -4,13 +4,14 @@
     <title>ShippingAnalyticsDashboard</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
       <%= render partial: "partials/nav"%>
       <%= render partial: "partials/flash_messages", flash: flash %>
     <%= yield %>
+      <%= render partial: "partials/footer"%>
   </body>
 </html>
