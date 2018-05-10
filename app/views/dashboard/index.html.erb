@@ -2,29 +2,33 @@
   <div class="data-list col-xs-6 col-sm-4 col-md-3">
     <div class="user-box col-xs-12">
           <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="random user" class="avatar-large">
-              <h3>
-                <%= current_user.first_name%>
-                <%= current_user.last_name%>
+              <h3 class="col-xs-9">
+                <%= current_user.first_name %>
+                <%= current_user.last_name %>
               </h3>
-              <h4>Logistics Manager</h4>
+
+              <h4 class="col-xs-9">
+                <%= current_user.occupation %>
+              </h4>
                 <%= link_to edit_user_registration_path(current_user) do %>
-                <h5> Edit Your Profile</h5>
+
+                <h5 class="col-xs-3"> Edit Profile</h5>
                 <% end %>
 
     </div>
     <div class="data-options">
         <ul>
-          <li>
+          <li class="col-xs-12">
             <a href="#">
               Shipments
             </a>
           </li>
-          <li>
+          <li class="col-xs-12">
             <a href="#">
               Requests
             </a>
           </li>
-          <li>
+          <li class="col-xs-12">
             <a href="#">
               Customers
             </a>
