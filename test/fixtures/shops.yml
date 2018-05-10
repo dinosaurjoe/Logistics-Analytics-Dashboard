@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  freight_capacity: 1
+  service_value: 1
+  name: MyString
+
+two:
+  user: two
+  freight_capacity: 1
+  service_value: 1
+  name: MyString
