@@ -10,12 +10,15 @@
     line-height: 20px;
     height: 50px;
     color: white;
+    // top: -50px;
     left: 0px;
+    height: 20vh;
+    z-index: 100;
     position: absolute;
 }
 
 .spacer {
-  margin-left: 150px;
+  // margin-left: 150px;
 }
 
 .navbar {
@@ -24,4 +27,25 @@
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+    margin-bottom: 0px;
+    z-index: 2;
+}
+
+.navbar-brand {
+  .padding-bottom: 10px;
+}
+.navbar-toggle {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.data-list {
+  background-color: $dark-blue;
+  // color: white;
+  height: 93vh;
+}
+
+.data {
+  background-color: $light-green;
+  height: 93vh;
 }
