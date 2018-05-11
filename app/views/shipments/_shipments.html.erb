@@ -11,7 +11,6 @@
       <% end %>
     </div>
   </div>
-
   <table class="table">
     <thead>
       <tr>
@@ -34,9 +33,9 @@
               <td><%= shipment.freight_capacity %></td>
               <td><%= shipment.service_value %></td>
               <td style="text-align: center;">
-                <%= link_to "View", shipment_path(shipment) %>
-                <%= link_to "Edit", edit_shipment_path(shipment) %>
-                <%= link_to "Delete", shipment_path(shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
+                <%= link_to "View", shop_shipments_path(@shop, shipment) %>
+                <%= link_to "Edit", edit_shop_shipment_path(@shop, shipment) %>
+                <%= link_to "Delete", shop_shipment_path(@shop, shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
               </td>
             </tr>
           <% end %>
