@@ -1,5 +1,10 @@
 <div class="container">
   <h3>Your Shipments</h3>
+
+  <%= link_to new_shop_shipment_path, class: "btn btn-default" do %>
+    <i class="fa fa-plus"></i>
+    Create Shipment
+  <% end %>
   <table class="table">
     <thead>
       <tr>
