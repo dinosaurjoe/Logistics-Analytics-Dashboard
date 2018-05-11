@@ -44,9 +44,9 @@ class ShopsController < ApplicationController
     authorize @shop
 
     if @shop.destroy
-      redirect to shop_path, notice: "Shop deleted."
+      redirect_to shops_path, notice: "Shop deleted."
     else
-      redirect to shop_path, notice: "Unable to delete shop."
+      redirect_to shops_path, notice: "Unable to delete shop."
     end
   end
 
