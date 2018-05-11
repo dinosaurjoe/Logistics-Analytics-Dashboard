@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
-  resources :shipments
-  resources :shops
+  resources :shops do
+      resources :shipments
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "dashboard#index", as: 'dashboard'
 end
