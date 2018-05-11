@@ -7,6 +7,8 @@ class ShopsController < ApplicationController
   end
 
   def show
+
+    @shipments = @shop.shipments
   end
 
   def edit

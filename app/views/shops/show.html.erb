@@ -24,10 +24,8 @@
     </div>
     <div class="data-options col-xs-12">
         <ul>
-          <li class="col-xs-12">
-            <a href="#">
-              Shipments
-            </a>
+          <li class="col-xs-12 shipment-button">
+            <%= link_to "Shipments", shop_shipments_path(@shop), remote: true %>
           </li>
           <li class="col-xs-12">
             <a href="#">

@@ -1,2 +1,33 @@
-<h1>Shipment#index</h1>
-<p>Find me in app/views/shipment/index.html.erb</p>
+<div class="container">
+  <h3>Your Shipments</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th style="text-align: center;">Shipment Status</th>
+        <th style="text-align: center;">Shipment Origin</th>
+        <th style="text-align: center;">Shipment Destination</th>
+        <th style="text-align: center;">Freight Capacity</th>
+        <th style="text-align: center;">Service Value</th>
+        <th style="text-align: center;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+          <% @shipments.each_with_index do |shipment, index| %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= shipment.status %></td>
+              <td><%= shipment.origin %></td>
+              <td><%= shipment.destination %></td>
+              <td><%= shipment.freight_capacity %></td>
+              <td><%= shipment.service_value %></td>
+              <td style="text-align: center;">
+                <%= link_to "View", shipment_path(shipment) %>
+                <%= link_to "Edit", edit_shipment_path(shipment) %>
+                <%= link_to "Delete", shipment_path(shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
+              </td>
+            </tr>
+          <% end %>
+    </tbody>
+  </table>
+</div>

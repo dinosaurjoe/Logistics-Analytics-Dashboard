@@ -1,9 +1,14 @@
 class ShipmentsController < ApplicationController
+  before_action :find_shop
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_shipment, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @shipments = current_user.shipments
+    @shipments = @shop.shipments
+      respond_to do |format|
+         format.js  #-> app/views/controller/index.js.erb
+         format.html
+      end
   end
 
   def show
@@ -51,6 +56,9 @@ class ShipmentsController < ApplicationController
   end
 
   private
+   def find_shop
+    @shop = Shop.find(params[:shop_id])
+  end
 
   def find_shipment
     @shipment = Shipment.find(params[:id])
