@@ -1,9 +1,9 @@
-class ShipmentController < ApplicationController
+class ShipmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_shipment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shipments = current_user.shipments
+    # @shipments = current_user.shipments
   end
 
   def show
