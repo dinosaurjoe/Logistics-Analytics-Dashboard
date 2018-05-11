@@ -1,0 +1,31 @@
+<% @page_title = "Your Shops" %>
+<div class="container">
+  <h3>Your Shops</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th style="text-align: center;">Shop Name</th>
+        <th style="text-align: center;">Freight Capacity</th>
+        <th style="text-align: center;">Service Value</th>
+        <th style="text-align: center;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+          <% @shops.each_with_index do |shop, index| %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= shop.name %></td>
+              <td><%= shop.freight_capacity %></td>
+              <td><%= shop.service_value %></td>
+              <td style="text-align: center;">
+                <%= link_to "View", shop_path(shop) %>
+                <%= link_to "Edit", edit_shop_path(shop) %>
+                <%= link_to "Delete", shop_path(shop), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
+              </td>
+            </tr>
+          <% end %>
+    </tbody>
+  </table>
+</div>
+

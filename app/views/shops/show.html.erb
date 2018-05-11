@@ -1,0 +1,43 @@
+  <div class="data-list col-xs-6 col-sm-4 col-md-3">
+
+    <div class="avatar-background col-xs-12">
+        <img class="avatar-large" src="https://randomuser.me/api/portraits/men/90.jpg" alt="">
+    </div>
+
+    <div class="user-box col-xs-12">
+              <h3 class="col-xs-12">
+                <%= current_user.first_name %>
+                <%= current_user.last_name %>
+              </h3>
+
+              <h4 class="col-xs-12">
+                <%= current_user.occupation %>
+              </h4>
+                <%= link_to edit_user_registration_path(current_user) do %>
+
+                <div class="col-xs-12 btn-treehouse"> Edit Profile</div>
+                <% end %>
+
+    </div>
+    <div class="data-options">
+        <ul>
+          <li class="col-xs-12">
+            <a href="#">
+              Shipments
+            </a>
+          </li>
+          <li class="col-xs-12">
+            <a href="#">
+              Requests
+            </a>
+          </li>
+          <li class="col-xs-12">
+            <a href="#">
+              Customers
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="data col-xs-6 col-sm-8 col-md-9">
+  </div>
