@@ -1,2 +1,7 @@
-<h1>Shipment#new</h1>
-<p>Find me in app/views/shipment/new.html.erb</p>
+<% content_for :title, "Create A New Shipment" %>
+
+<div class="container projects-container">
+  <h3>Create A New Shipment</h3>
+
+  <%= render partial: "form", locals: {shop: @shop, shipment: @shop.shipments.new} %>
+</div>

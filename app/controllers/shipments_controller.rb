@@ -23,11 +23,11 @@ class ShipmentsController < ApplicationController
   end
 
   def create
-    @shipment = current_user.shipments.build(shipment_params)
+    @shipment = @shop.shipments.build(shipment_params)
 
     if @shipment.save
       # flash[:success] = "Your project was created. Now add some images."
-      redirect_to shipment_path(@shipment)
+      redirect_to @shop
     else
       flash[:alert] = @shipment.errors.full_messages.to_sentence
       render :new
