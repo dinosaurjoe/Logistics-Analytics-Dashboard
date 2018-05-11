@@ -27,7 +27,18 @@
     <% else %>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">My Shops</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shops
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "Create New Shop", new_shop_path %>
+              </li>
+              <li>
+                <%= link_to "My Shops", shops_path %>
+              </li>
+            </ul>
+          </li>
           <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                   Sign Out
