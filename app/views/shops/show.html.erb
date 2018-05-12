@@ -35,9 +35,7 @@
             <%= link_to "Customer Overview", shop_customers_path(@shop), remote: true%>
           </li>
           <li class="col-xs-12">
-            <a href="#">
-              Requests
-            </a>
+            <%= link_to "Requests", requests_path(@user), remote: true%>
           </li>
         </ul>
       <% else %>
