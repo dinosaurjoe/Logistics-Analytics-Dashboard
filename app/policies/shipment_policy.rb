@@ -10,4 +10,9 @@ class ShipmentPolicy < ApplicationPolicy
   def edit?
     user == record.shop.user
   end
+
+  def update?
+    user == record.shop.user
+  end
+
 end

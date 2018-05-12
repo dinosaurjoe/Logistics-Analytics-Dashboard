@@ -1,2 +1,56 @@
-<h1>Shipment#edit</h1>
-<p>Find me in app/views/shipment/edit.html.erb</p>
+<%= form_for([@shop, @shipment]) do |f| %>
+  <div>
+    <div>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <%= f.label :origin, "Origin"%>
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <%= f.text_field :origin%>
+          <p style="opacity:.4"><i>(Required)</i></p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <%= f.label :desination, "Destination"%>
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <%= f.text_field :destination%>
+          <p style="opacity:.4"><i>(Required)</i></p>
+        </div>
+      </div>
+    </div>
+  <br>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :status, 'Status'%>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= f.select :status, ["Received", "Open", "Completed"], :prompt => "Status" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :freight_capacity, 'Freight Capacity'%>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= f.text_field :freight_capacity%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <%= f.label :service_value, 'Service Value'%>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <%= f.text_field :service_value%>
+      </div>
+    </div>
+    <br>
+  <div class="row">
+    <div class="col-xs-8 col-sm-6 col-md-4">
+      <%= f.submit "Save", :class => 'btn btn-default btn-block' %>
+      <% end %>
+    </div>
+  </div>
