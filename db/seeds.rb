@@ -23,9 +23,11 @@ NUMBER = (0..99)
     password_confirmation: password,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    # occupation: "#{OCCUPATION.sample}"
+    occupation: "#{OCCUPATION.sample}",
+    images: "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
+
     )
-  # u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
+  #u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
   c.update_attribute :created_at, (rand*10).days.ago
   c.update_attribute :updated_at, (rand*5).days.ago
   c.save!

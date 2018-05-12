@@ -1,7 +1,11 @@
 
               <% @shop.customers.each do |customer| %>
+                    <%= image_tag(customer.images) %>
                     <h3>
                       <%= customer.first_name %>
                       <%= customer.last_name %>
+                    </h3>
+                    <h3>
+                      <%= customer.occupation %>
                     </h3>
               <% end %>
