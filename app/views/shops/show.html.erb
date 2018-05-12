@@ -37,9 +37,7 @@
             </a>
           </li>
           <li class="col-xs-12">
-            <a href="#">
-              Customers
-            </a>
+            <%= link_to "Customer Overview", shop_customers_path(@shop), remote: true%>
           </li>
         </ul>
       <% else %>
@@ -58,6 +56,7 @@
     </div>
   </div>
   <div class="data col-xs-6 col-sm-8 col-md-9">
+
   </div>
 
 
