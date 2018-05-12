@@ -27,8 +27,11 @@
     <div class="data-options col-xs-12">
       <% if @shop.user === current_user %>
         <ul>
+            <li class="col-xs-12 shipment-button">
+            <%= link_to "User Profile", dashboard_path%>
+          </li>
           <li class="col-xs-12 shipment-button">
-            <%= link_to "Shipments", shop_shipments_path(@shop), remote: true%>
+            <%= link_to "Shipment Overview", shop_shipments_path(@shop), remote: true%>
           </li>
           <li class="col-xs-12">
             <a href="#">
