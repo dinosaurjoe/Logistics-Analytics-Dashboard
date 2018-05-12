@@ -38,7 +38,7 @@ class ShipmentsController < ApplicationController
     authorize @shipment
 
     if @shipment.update_attributes(shipment_params)
-      redirect_to shipment_path(@shipment)
+      redirect_to shop_path(@shop)
     else
       flash[:alert] = "Unable to update project. #{@shipment.errors.full_messages.to_sentence}"
       redirect_to :edit
@@ -49,9 +49,9 @@ class ShipmentsController < ApplicationController
     authorize @shipment
 
     if @shipment.destroy
-      redirect to shipments_path, notice: "Shipment Canceled."
+      redirect_to shop_path(@shop), notice: "Shipment Canceled."
     else
-      redirect to shipments_path, notice: "Unable to cancel shipment."
+      redirect_to shop_path(@shop), notice: "Unable to cancel shipment."
     end
   end
 
