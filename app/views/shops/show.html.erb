@@ -9,23 +9,26 @@
 
     <div class="user-box col-xs-12">
               <h3 class="col-xs-12">
-                <%= current_user.first_name %>
-                <%= current_user.last_name %>
+                <%= @shop.user.first_name %>
+                <%= @shop.user.last_name %>
               </h3>
 
               <h4 class="col-xs-12">
-                <%= current_user.occupation %>
+                <%= @shop.user.occupation %>
               </h4>
+              <% if @shop.user === current_user %>
                 <%= link_to edit_user_registration_path(current_user) do %>
 
                 <div class="col-xs-12 btn-treehouse"> Edit Profile</div>
                 <% end %>
+              <% end %>
 
     </div>
     <div class="data-options col-xs-12">
+      <% if @shop.user === current_user %>
         <ul>
           <li class="col-xs-12 shipment-button">
-            <%= link_to "Shipments", shop_shipments_path(@shop), remote: true %>
+            <%= link_to "Shipments", shop_shipments_path(@shop), remote: true%>
           </li>
           <li class="col-xs-12">
             <a href="#">
@@ -38,8 +41,22 @@
             </a>
           </li>
         </ul>
+      <% else %>
+        <ul>
+          <li class="col-xs-12">
+              <%= link_to "Customer Sign In", customer_shop_session_path(@shop) %>
+          </li>
+          <li class="col-xs-12">
+              <%= link_to "Customer Sign Up", new_customer_shop_registration_path(@shop) %>
+          </li>
+          <li class="col-xs-12">
+              <%= link_to "Customer Sign Out", destroy_customer_shop_session_path(@shop), method: :delete %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
-  <div class="data col-xs-6 col-sm-8 col-md-9" id="shipments">
+  <div class="data col-xs-6 col-sm-8 col-md-9">
   </div>
+
 
