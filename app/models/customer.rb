@@ -4,7 +4,10 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :shop
+  belongs_to :shop, optional: true
+  accepts_nested_attributes_for :shop
+
+  # validates :shop_id, presence: true
 
 
   protected
