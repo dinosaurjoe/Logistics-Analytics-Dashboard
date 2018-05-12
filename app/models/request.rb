@@ -8,8 +8,7 @@ class Request < ApplicationRecord
 
   def status(current_user)
     @request = self
-    @proposal = @request.proposal
-    if @proposal.shop.user == current_user
+    if @user == current_user
       owner_status_logic
     elsif @request.customer == current_user
       customer_status_logic
