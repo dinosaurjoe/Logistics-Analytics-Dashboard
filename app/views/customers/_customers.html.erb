@@ -1,0 +1,23 @@
+
+<div class="col-xs-12 customers">
+  <h3> Top Customers </h3>
+              <% @shop.customers.each do |customer| %>
+              <div class="col-xs-12 customer">
+                  <div class="col-xs-12 col-sm-3">
+                      <%= image_tag(customer.images, class: "avatar-large")  %>
+                  </div>
+                  <div class="col-xs-12 col-sm-9">
+                      <h4>
+                        <%= customer.first_name %>
+                        <%= customer.last_name %>
+                      </h4>
+                      <h4>
+                        <%= customer.occupation %>
+                      </h4>
+                  </div>
+              </div>
+              <hr>
+
+              <% end %>
+
+</div>
