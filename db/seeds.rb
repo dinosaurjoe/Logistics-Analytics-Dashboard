@@ -26,6 +26,8 @@ NUMBER = (0..99)
     # occupation: "#{OCCUPATION.sample}"
     )
   # u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
+  c.update_attribute :created_at, (rand*10).days.ago
+  c.update_attribute :updated_at, (rand*5).days.ago
   c.save!
 
 end
