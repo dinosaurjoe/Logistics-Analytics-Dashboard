@@ -1,0 +1,19 @@
+.customers {
+  background-color: white;
+  margin-top: 50px;
+  padding-bottom: 10px;
+  height: 80vh;
+  overflow: scroll;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
+}
+
+.customer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid grey;
+}
+.customers h3 {
+  text-align: center;
+}

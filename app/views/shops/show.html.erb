@@ -32,12 +32,12 @@
             <%= link_to "Shipment Overview", shop_shipments_path(@shop), remote: true%>
           </li>
           <li class="col-xs-12">
+            <%= link_to "Customer Overview", shop_customers_path(@shop), remote: true%>
+          </li>
+          <li class="col-xs-12">
             <a href="#">
               Requests
             </a>
-          </li>
-          <li class="col-xs-12">
-            <%= link_to "Customer Overview", shop_customers_path(@shop), remote: true%>
           </li>
         </ul>
       <% else %>
