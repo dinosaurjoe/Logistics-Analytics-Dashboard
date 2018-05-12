@@ -8,16 +8,28 @@ class Customers::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
+      respond_to do |format|
+         format.js  #-> app/views/controller/index.js.erb
+         format.html
+      end
   end
 
   # POST /resource/sign_in
   def create
     super
+      respond_to do |format|
+         format.js  #-> app/views/controller/index.js.erb
+         format.html
+      end
   end
 
   # DELETE /resource/sign_out
   def destroy
     super
+      respond_to do |format|
+         format.js  #-> app/views/controller/index.js.erb
+         format.html
+      end
   end
 
   protected
