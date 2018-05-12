@@ -49,9 +49,9 @@ class ShipmentsController < ApplicationController
     authorize @shipment
 
     if @shipment.destroy
-      redirect to shipments_path, notice: "Shipment Canceled."
+      redirect_to shop_path, notice: "Shipment Canceled."
     else
-      redirect to shipments_path, notice: "Unable to cancel shipment."
+      redirect_to shop_path, notice: "Unable to cancel shipment."
     end
   end
 
