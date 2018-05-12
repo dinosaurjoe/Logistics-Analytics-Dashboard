@@ -49,6 +49,9 @@
           <li class="col-xs-12">
               <%= link_to "Customer Sign Up", new_customer_shop_registration_path(@shop) %>
           </li>
+          <li class="col-xs-12">
+              <%= link_to "Customer Sign Out", destroy_customer_shop_session_path(@shop), method: :delete %>
+          </li>
         </ul>
       <% end %>
     </div>
