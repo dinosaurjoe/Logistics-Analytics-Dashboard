@@ -20,26 +20,43 @@
                 <% end %>
 
     </div>
-    <div class="data-options">
+    <div class="data-options col-xs-12">
         <ul>
-          <li class="col-xs-12">
-            <a href="#">
-              Shipments
-            </a>
-          </li>
-          <li class="col-xs-12">
-            <a href="#">
-              Requests
-            </a>
-          </li>
-          <li class="col-xs-12">
-            <a href="#">
-              Customers
-            </a>
-          </li>
+            <li class="col-xs-12 shipment-button">
+              <%= link_to "Create New Shop", new_shop_path %>
+            </li>
         </ul>
     </div>
   </div>
-  <div class="data col-xs-6 col-sm-8 col-md-9">
+  <div class="data shops col-xs-6 col-sm-8 col-md-9">
+      <h3 class="header col-sm-12">
+        My Shops
+      </h3>
+      <div class="shop-container fix-stretch">
+        <% @user.shops.each do |shop| %>
+          <div class="col-sm-7 col-md-5 col-lg-4" data-id="<%= shop.id %>">
+            <div>
+                <%= link_to shop_path(shop.id) do%>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/reserve/TxbDzeAhRmCwa6DDrbOQ_kazan-big.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3101d5831fc089e7a5c249c4dcb98aea&auto=format&fit=crop&w=2550&q=80');">
+                  <div class="card-category"></div>
+                    <div class="card-description">
+                      <h2>
+                        <%= shop.name %>
+                      </h2>
+                      <p>
+                        Freight Capacity:
+                        <%= shop.freight_capacity%>
+                      </p>
+                      <p>
+                        Service Value:
+                        <%= shop.service_value%>
+                      </p>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
   </div>
 <!-- </div> -->
