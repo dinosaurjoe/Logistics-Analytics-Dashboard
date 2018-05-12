@@ -9,19 +9,17 @@
 
     <div class="user-box col-xs-12">
               <h3 class="col-xs-12">
-                <%= @shop.user.first_name %>
-                <%= @shop.user.last_name %>
+                <%= @shop.name %>
               </h3>
 
               <h4 class="col-xs-12">
-                <%= @shop.user.occupation %>
+                Freight Capacity:
+                <%= @shop.freight_capacity %>
               </h4>
-              <% if @shop.user === current_user %>
-                <%= link_to edit_user_registration_path(current_user) do %>
-
-                <div class="col-xs-12 btn-treehouse"> Edit Profile</div>
-                <% end %>
-              <% end %>
+              <h4 class="col-xs-12">
+                Service Value:
+                <%= @shop.service_value %>
+              </h4>
 
     </div>
     <div class="data-options col-xs-12">
