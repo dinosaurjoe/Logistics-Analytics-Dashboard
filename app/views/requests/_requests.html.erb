@@ -3,12 +3,7 @@
     <div class="col-xs-4">
         <h3>Booking Requests</h3>
     </div>
-    <div class="col-xs-4 create-button">
-      <%= link_to new_shop_shipment_path, class: "btn btn-default" do %>
-        <i class="fa fa-plus"></i>
-        Create Shipment
-      <% end %>
-    </div>
+
   </div>
   <table class="table">
     <thead>
@@ -21,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-          <% @requests.each_with_index do |shipment, index| %>
+          <% @requests.each_with_index do |request, index| %>
             <tr>
               <th scope="row"><%= index + 1 %></th>
               <td><%= request.status %></td>
@@ -29,9 +24,6 @@
               <td><%= request.customer_confirmation %></td>
               <td><%= request.proposal %></td>
               <td style="text-align: center;">
-<!--                 <%= link_to "View", shop_shipments_path(@shop, shipment) %>
-                <%= link_to "Edit", edit_shop_shipment_path(@shop, shipment) %>
-                <%= link_to "Delete", shop_shipment_path(@shop, shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %> -->
               </td>
             </tr>
           <% end %>
