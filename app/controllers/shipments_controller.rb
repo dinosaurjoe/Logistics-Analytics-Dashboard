@@ -66,6 +66,6 @@ class ShipmentsController < ApplicationController
   end
 
   def shipment_params
-    params.require(:shipment).permit(:status, :destination, :origin, :freight_capacity, :service_value)
+    params.require(:shipment).permit(:status, :destination, :origin)
   end
 end

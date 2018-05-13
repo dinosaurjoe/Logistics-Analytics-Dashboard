@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shop: one
+  shipment: one
+  transportation_type: MyString
+  container_size: MyString
+  service_value: 1
+
+two:
+  shop: two
+  shipment: two
+  transportation_type: MyString
+  container_size: MyString
+  service_value: 1

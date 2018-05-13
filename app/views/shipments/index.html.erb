@@ -24,8 +24,6 @@
               <td><%= shipment.status %></td>
               <td><%= shipment.origin %></td>
               <td><%= shipment.destination %></td>
-              <td><%= shipment.freight_capacity %></td>
-              <td><%= shipment.service_value %></td>
               <td style="text-align: center;">
                 <%= link_to "View", shop_shipments_path(@shop, shipment) %>
                 <%= link_to "Edit", edit_shop_shipment_path(@shop, shipment) %>
