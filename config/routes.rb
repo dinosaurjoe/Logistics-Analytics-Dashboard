@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
 
   get 'dashboard/index'
-
-  resources :requests
+  resources :users do
+    resources :requests
+  end
 
   resources :shops do
       resources :shipments

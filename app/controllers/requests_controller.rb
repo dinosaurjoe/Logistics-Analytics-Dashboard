@@ -1,15 +1,27 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept]
+  before_action :set_request, only: [:show, :edit, :update, :set_status, :destroy]
+  before_action :find_user
+  #before_action :set_status
   #skip_after_action :verify_authorized
 
   def index
     # authorize @request
-    @request = Request.all
+    @requests = @user.requests.all
   end
 
   def show
     @request = Request.find(params[:id])
     @request.status(current_customer)
+  end
+
+  def set_status
+    if @request.user_confirmation && @request.customer_confirmation = true
+        @request.status = "Accepted"
+    elsif @request.user_confirmation || @request.customer_confirmation = false
+        @request.status = "Declined"
+    else
+        @request.status = "Open"
+    end
   end
 
   def new
@@ -33,36 +45,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  def decline
-    authorize @request
-    if current_user == @request.project.owner
-      @request.user_confirmation == false
-      Pusher.trigger("user-#{@request.user.id}-#{Rails.env}", 'status', {
-        message: "Your request was declined :("
-    })
-    else
-      @request.user_confirmation == false
-      Pusher.trigger("user-#{@request.user.id}-#{Rails.env}", 'status', {
-        message: "Your request was declined :("
-      })
-    end
-
-  end
-
-  def accept
-    Pusher.trigger("user-#{@request.user.id}-#{Rails.env}", 'status', {
-      message: "accept"
-    })
-    authorize @request
-
-    @request.customer_confirmation = true
-    @request.user_confirmation = true
-    @request.save
-
-    #"#{@request.role.project.owner.first_name} accepted your request to join #{@request.role.project.title}"
-    redirect_to dashboard_path
-  end
-
   def destroy
     @request = Request.find(params[:id])
     @request.destroy
@@ -76,6 +58,11 @@ class RequestsController < ApplicationController
   end
 
   private
+
+  def find_user
+      @user = User.find(params[:user_id])
+  end
+
 
   def set_request
     @request = Request.find(params[:id])
