@@ -10,6 +10,7 @@
 
 Customer.destroy_all
 Request.destroy_all
+# Shipment.destroy_all
 
 password = Faker::Internet.password(8)
 OCCUPATION = ["Logistics Manager", "Supplier", "Logistics Assistant", "Sales"]
@@ -17,10 +18,15 @@ GENDER = ["men", "women"]
 NUMBER = (0..99)
 REQUEST_PROPOSAL = (1200..8000)
 REQUEST_BOOLEAN = [true, false]
+SHIPMENT_STATUS = ["Received", "Open", "Completed"]
+SHIPMENT_ORIGIN = ["Shanghai", "Singapore", "Shenzen", "Ningbo-Zhoushan", "Hong Kong", "Busan"
+                   "Qingdao", "Guangzhou Harbor", "Jebel Ali", "Tianjin", "Rotterdam", "Port Klang"]
+SHIPMENT_DESTINATION = ["Kaohsiung", "Antwerp", "Dalian", "Xiamen", "Tanjung Pelepas", "Hamburg", "Los Angeles"
+                        "Keihin Ports", "Long Beach", "Laem Chabang", "New York", "Bremen"]
 
 5.times do
   c = Customer.new(
-    shop: Shop.first,
+    shop: User.first.shops.first,
     email: Faker::Internet.email,
     password: password,
     password_confirmation: password,
@@ -36,7 +42,7 @@ REQUEST_BOOLEAN = [true, false]
 
 end
 
-5.times do
+10.times do
   r = Request.new(
     user_id: User.first.id,
     customer_id: Customer.all.sample.id,
@@ -49,3 +55,17 @@ end
   #u.remote_profile_picture_url = "https://randomuser.me/api/portraits/#{GENDER.sample}/#{rand(NUMBER)}.jpg"
 
 end
+
+# 10.times do
+#   s = Shipment.new(
+#     shop_id: User.first.shops.first.id,
+#     status: SHIPMENT_STATUS.sample,
+#     origin: SHIPMENT_ORIGIN.sample,
+#     destination: SHIPMENT_DESTINATION.sample
+
+
+
+#     )
+
+#   s.save
+# end
