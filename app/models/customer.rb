@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :shop, optional: true
+  has_many :requests, dependent: :destroy
   accepts_nested_attributes_for :shop
 
   # validates :shop_id, presence: true

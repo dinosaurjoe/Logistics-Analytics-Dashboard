@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
+
   get 'dashboard/index'
+  resources :users do
+    resources :requests
+  end
 
   resources :shops do
       resources :shipments

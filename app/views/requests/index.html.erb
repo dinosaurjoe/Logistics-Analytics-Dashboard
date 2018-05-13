@@ -1,0 +1,32 @@
+<div class="shipment-container container col-xs-12">
+  <div class="shipment-top">
+    <div class="col-xs-4">
+        <h3>Booking Requests</h3>
+    </div>
+
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th style="text-align: center;">Request Status</th>
+        <th style="text-align: center;">Customer</th>
+        <th style="text-align: center;">Confirmation</th>
+        <th style="text-align: center;">Proposal</th>
+      </tr>
+    </thead>
+    <tbody>
+          <% @requests.each_with_index do |request, index| %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= request.status %></td>
+              <td><%= request.customer_id %></td>
+              <td><%= request.customer_confirmation %></td>
+              <td><%= request.proposal %></td>
+              <td style="text-align: center;">
+              </td>
+            </tr>
+          <% end %>
+    </tbody>
+  </table>
+</div>
