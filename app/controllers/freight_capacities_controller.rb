@@ -4,6 +4,7 @@ class FreightsCapacitiesController < ApplicationController
 
   def show
   end
+
 private
   def find_shipment
     @shipment = Shipment.find(params[:shipment_id])
