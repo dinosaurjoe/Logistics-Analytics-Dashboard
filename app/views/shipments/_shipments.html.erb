@@ -25,13 +25,14 @@
     </thead>
     <tbody id="shipmentList">
           <% @shipments.each_with_index do |shipment, index| %>
-            <tr data-toggle="modal" data-target="#exampleModal">
+            <tr>
               <th scope="row"><%= index + 1 %></th>
               <td><%= shipment.status %></td>
               <td><%= shipment.origin %></td>
               <td><%= shipment.destination %></td>
               <td><%= shipment.freight_capacity.volume %></td>
               <td><%= shipment.freight_capacity.service_value %></td>
+              <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
 
               <td style="text-align: center;">
                 <%= link_to "View", shop_shipments_path(@shop, shipment) %>
@@ -44,26 +45,3 @@
   </table>
 </div>
 
-<script>
-$('document').ready(function(){
-
-  if($('#shipmentList').length){
-    var myShipmentList = document.getElementById("shipmentList").getElementsByTagName("tr");
-    for (i = 0; i < myShipmentList.length; i++){
-      myShipmentList[i].addEventListener("click", activateItem);
-    }
-  }
-
-  function activateItem(){
-    var status = this.childNodes[3].innerHTML;
-    var origin = this.childNodes[5].innerHTML;
-    var destination = this.childNodes[7].innerHTML;
-    var volume = this.childNodes[9].innerHTML;
-    var service_value = this.childNodes[11].innerHTML;
-
-    document.getElementById("myModalLabel").innerHTML = "Shipment from " + origin + " to " + destination + ".";
-    document.getElementById("myModalBody").innerHTML = "Total Volume: " + volume + "<br />" + " Service Value: € " + service_value;
-  }
-});
-
-</script>

@@ -4,6 +4,10 @@ class FreightCapacitiesController < ApplicationController
 
 
   def show
+      respond_to do |format|
+         format.js  #-> app/views/controller/index.js.erb
+         format.html
+      end
   end
 
 private
