@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513153205) do
+ActiveRecord::Schema.define(version: 20180513232112) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 20180513153205) do
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
     t.index ["shop_id"], name: "index_customers_on_shop_id"
+  end
+
+  create_table "freight_capacities", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "shipment_id"
+    t.string "transportation_type"
+    t.string "container_size"
+    t.integer "service_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "volume"
+    t.index ["shipment_id"], name: "index_freight_capacities_on_shipment_id"
+    t.index ["shop_id"], name: "index_freight_capacities_on_shop_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -58,15 +71,11 @@ ActiveRecord::Schema.define(version: 20180513153205) do
     t.datetime "updated_at", null: false
     t.string "destination"
     t.string "origin"
-    t.integer "freight_capacity"
-    t.integer "service_value"
     t.index ["shop_id"], name: "index_shipments_on_shop_id"
   end
 
   create_table "shops", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "freight_capacity"
-    t.integer "service_value"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

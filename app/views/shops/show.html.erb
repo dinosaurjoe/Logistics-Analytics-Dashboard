@@ -14,11 +14,15 @@
 
               <h4 class="col-xs-12">
                 Freight Capacity:
-                <%= @shop.freight_capacity %>
+
               </h4>
               <h4 class="col-xs-12">
-                Service Value:
-                <%= @shop.service_value %>
+                Total Service Value:
+                <% sum = 0 %>
+                <% @shop.freight_capacities.each do |v| %>
+                    <% sum += v.volume * 1000 %>
+                <% end %>
+                € <%= sum %>
               </h4>
 
     </div>
@@ -54,7 +58,7 @@
     </div>
   </div>
   <div class="data col-xs-6 col-sm-8 col-md-9">
-
+    <%= render :partial => "shopoverview"%>
   </div>
 
 

@@ -60,6 +60,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:freight_capacity, :service_value, :name)
+    params.require(:shop).permit(:name)
   end
 end
