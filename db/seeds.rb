@@ -11,7 +11,7 @@
 Customer.destroy_all
 Request.destroy_all
 FreightCapacity.destroy_all
-# Shipment.destroy_all
+Shipment.destroy_all
 
 password = Faker::Internet.password(8)
 OCCUPATION = ["Logistics Manager", "Supplier", "Logistics Assistant", "Sales"]
@@ -60,27 +60,27 @@ end
 
 end
 
-10.times do
-  f = FreightCapacity.new(
+
+20.times do
+  s = Shipment.new(
     shop_id: User.first.shops.first.id,
-    shipment_id: User.first.shops.first.shipments.sample.id,
-    transportation_type: TRANSPORTATION_TYPE.sample,
-    container_size: CONTAINER_SIZE.sample,
-    volume: rand(NUMBER)
+    status: SHIPMENT_STATUS.sample,
+    origin: SHIPMENT_ORIGIN.sample,
+    destination: SHIPMENT_DESTINATION.sample
     )
 
-  f.save
+  s.save
 end
-# 10.times do
-#   s = Shipment.new(
-#     shop_id: User.first.shops.first.id,
-#     status: SHIPMENT_STATUS.sample,
-#     origin: SHIPMENT_ORIGIN.sample,
-#     destination: SHIPMENT_DESTINATION.sample
 
+shipments = Shipment.all
 
+shipments.each do |shipment|
+        f = FreightCapacity.new(
+        shipment_id: shipment.id,
+        transportation_type: TRANSPORTATION_TYPE.sample,
+        container_size: CONTAINER_SIZE.sample,
+        volume: rand(NUMBER),
+      )
 
-#     )
-
-#   s.save
-# end
+    f.save
+  end

@@ -14,16 +14,6 @@ class RequestsController < ApplicationController
     @request.status(current_customer)
   end
 
-  def set_status
-    if @request.user_confirmation && @request.customer_confirmation = true
-        @request.status = "Accepted"
-    elsif @request.user_confirmation || @request.customer_confirmation = false
-        @request.status = "Declined"
-    else
-        @request.status = "Open"
-    end
-  end
-
   def new
     @request = Request.new
     @request.user_confirmation = true
