@@ -1,6 +1,7 @@
-class FreightsCapacitiesController < ApplicationController
+class FreightCapacitiesController < ApplicationController
   before_action :find_freight_capacity
   before_action :find_shipment
+
 
   def show
   end

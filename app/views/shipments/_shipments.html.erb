@@ -30,6 +30,7 @@
               <td><%= shipment.status %></td>
               <td><%= shipment.origin %></td>
               <td><%= shipment.destination %></td>
+              <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop.id, shipment.freight_capacity.id, shipment.id) %></td>
 
               <td style="text-align: center;">
                 <%= link_to "View", shop_shipments_path(@shop, shipment) %>
