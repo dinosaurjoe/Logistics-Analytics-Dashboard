@@ -6,7 +6,11 @@ class RequestsController < ApplicationController
 
   def index
     # authorize @request
-    @requests = @user.requests.all
+      @requests = @user.requests.all
+  end
+
+  def declined
+    @requests = @user.requests.all.where(status: 'Declined')
   end
 
   def show

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
   resources :users do
-    resources :requests
+    resources :requests do
+      collection do
+       get 'declined'
+      end
+    end
   end
 
   resources :shops do
