@@ -1,0 +1,2 @@
+module FreightCapacitiesHelper
+end
