@@ -17,6 +17,7 @@ password = Faker::Internet.password(8)
 OCCUPATION = ["Logistics Manager", "Supplier", "Logistics Assistant", "Sales"]
 GENDER = ["men", "women"]
 NUMBER = (0..99)
+VOLUME = (1..43)
 REQUEST_PROPOSAL = (1200..8000)
 REQUEST_BOOLEAN = [true, false]
 SHIPMENT_STATUS = ["Received", "Open", "Completed"]
@@ -79,7 +80,7 @@ shipments.each do |shipment|
         shipment_id: shipment.id,
         transportation_type: TRANSPORTATION_TYPE.sample,
         container_size: CONTAINER_SIZE.sample,
-        volume: rand(NUMBER),
+        volume: rand(VOLUME),
       )
 
     f.save

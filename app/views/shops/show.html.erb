@@ -21,7 +21,12 @@
                 <%= total %>
               </h4>
               <h4 class="col-xs-12">
+                <% value = 0 %>
                 Total Service Value:
+                <% @shop.shipments.each do |shipment|%>
+                <% value += shipment.freight_capacity.service_value %>
+                <% end %>
+                <%= number_to_currency(value) %>
               </h4>
 
     </div>
