@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
-      resources :shipments
+      resources :shipments do
+        resources :freight_capacities
+      end
       devise_for :customers, path: 'customers', controllers: {sessions: 'customers/sessions', registrations: 'customers/registrations'}
       resources :customers, only: [:index]
   end

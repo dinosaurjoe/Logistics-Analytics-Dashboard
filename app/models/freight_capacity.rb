@@ -1,5 +1,4 @@
 class FreightCapacity < ApplicationRecord
-  belongs_to :shop
   belongs_to :shipment
 
   TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]

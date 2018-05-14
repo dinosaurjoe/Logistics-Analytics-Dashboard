@@ -4,12 +4,6 @@
     <div class="col-xs-4">
         <h3>Your Shipments</h3>
     </div>
-    <div class="col-xs-4 create-button">
-      <%= link_to new_shop_shipment_path, class: "btn btn-default" do %>
-        <i class="fa fa-plus"></i>
-        Create Shipment
-      <% end %>
-    </div>
   </div>
   <table class="table">
     <thead>
@@ -18,21 +12,23 @@
         <th style="text-align: center;">Shipment Status</th>
         <th style="text-align: center;">Shipment Origin</th>
         <th style="text-align: center;">Shipment Destination</th>
-        <th style="text-align: center;">Freight Capacity</th>
+        <th style="text-align: center;">Volume</th>
         <th style="text-align: center;">Service Value</th>
         <th style="text-align: center;">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="shipmentList">
           <% @shipments.each_with_index do |shipment, index| %>
             <tr>
               <th scope="row"><%= index + 1 %></th>
               <td><%= shipment.status %></td>
               <td><%= shipment.origin %></td>
               <td><%= shipment.destination %></td>
+              <td><%= shipment.freight_capacity.volume %></td>
+              <td><%= shipment.freight_capacity.service_value %></td>
+              <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
 
               <td style="text-align: center;">
-                <%= link_to "View", shop_shipments_path(@shop, shipment) %>
                 <%= link_to "Edit", edit_shop_shipment_path(@shop, shipment) %>
                 <%= link_to "Delete", shop_shipment_path(@shop, shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
               </td>
@@ -41,3 +37,4 @@
     </tbody>
   </table>
 </div>
+
