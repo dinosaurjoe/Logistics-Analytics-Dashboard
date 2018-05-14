@@ -14,6 +14,7 @@
         <th style="text-align: center;">Shipment Destination</th>
         <th style="text-align: center;">Volume</th>
         <th style="text-align: center;">Service Value</th>
+        <th style="text-align: center;">Freight Info</th>
         <th style="text-align: center;">Actions</th>
       </tr>
     </thead>
@@ -25,7 +26,7 @@
               <td><%= shipment.origin %></td>
               <td><%= shipment.destination %></td>
               <td><%= shipment.freight_capacity.volume %></td>
-              <td><%= shipment.freight_capacity.service_value %></td>
+              <td><%= number_to_currency(shipment.freight_capacity.service_value) %></td>
               <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
 
               <td style="text-align: center;">
