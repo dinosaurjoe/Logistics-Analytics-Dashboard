@@ -13,8 +13,12 @@
               </h3>
 
               <h4 class="col-xs-12">
-                Freight Capacity:
-
+                Total Shop Capacity:
+                <% total = 0 %>
+                <% @shop.shipments.each do |shipment|%>
+                <% total += shipment.freight_capacity.volume %>
+                <% end %>
+                <%= total %>
               </h4>
               <h4 class="col-xs-12">
                 Total Service Value:
@@ -59,7 +63,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="myModalLabel">Shipment</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
