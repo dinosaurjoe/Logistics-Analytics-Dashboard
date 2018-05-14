@@ -62,6 +62,7 @@ end
 10.times do
   f = FreightCapacity.new(
     shop_id: User.first.shops.first.id,
+    shipment_id: User.first.shops.first.shipments.sample.id,
     transportation_type: TRANSPORTATION_TYPE.sample,
     container_size: CONTAINER_SIZE.sample,
     volume: rand(NUMBER)
