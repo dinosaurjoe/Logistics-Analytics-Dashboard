@@ -19,10 +19,13 @@ NUMBER = (0..99)
 REQUEST_PROPOSAL = (1200..8000)
 REQUEST_BOOLEAN = [true, false]
 SHIPMENT_STATUS = ["Received", "Open", "Completed"]
-SHIPMENT_ORIGIN = ["Shanghai", "Singapore", "Shenzen", "Ningbo-Zhoushan", "Hong Kong", "Busan"
+SHIPMENT_ORIGIN = ["Shanghai", "Singapore", "Shenzen", "Ningbo-Zhoushan", "Hong Kong", "Busan",
                    "Qingdao", "Guangzhou Harbor", "Jebel Ali", "Tianjin", "Rotterdam", "Port Klang"]
-SHIPMENT_DESTINATION = ["Kaohsiung", "Antwerp", "Dalian", "Xiamen", "Tanjung Pelepas", "Hamburg", "Los Angeles"
+SHIPMENT_DESTINATION = ["Kaohsiung", "Antwerp", "Dalian", "Xiamen", "Tanjung Pelepas", "Hamburg", "Los Angeles",
                         "Keihin Ports", "Long Beach", "Laem Chabang", "New York", "Bremen"]
+TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]
+CONTAINER_SIZE = ["LCL (Less-than Container Load)", "20' Container", "40' Container", "45' High Cube"]
+
 
 5.times do
   c = Customer.new(
@@ -56,6 +59,16 @@ end
 
 end
 
+10.times do
+  f = FreightCapacity.new(
+    shop_id: User.first.shops.first.id,
+    transportation_type: TRANSPORTATION_TYPE.sample,
+    container_size: CONTAINER_SIZE.sample,
+    volume: rand(NUMBER)
+    )
+
+  f.save
+end
 # 10.times do
 #   s = Shipment.new(
 #     shop_id: User.first.shops.first.id,
