@@ -2,16 +2,21 @@ class Request < ApplicationRecord
   belongs_to :customer
   belongs_to :user
 
+  attr_reader :status
+
 
   def status
     @request = self
 
-    if @request.user_confirmation && @request.customer_confirmation = true
+    @customer_confirmation = @request.customer_confirmation
+    @user_confirmation = @request.user_confirmation
+
+    if @customer_confirmation == true && @user_confirmation == true
         @request.status = "Accepted"
-    elsif @request.user_confirmation || @request.customer_confirmation = false
-        @request.status = "Declined"
+    elsif @customer_confirmation == true && @user_confirmation == false
+        @request.status = "Pending"
     else
-        @request.status = "Open"
+      @request.status = "Declined"
     end
   end
 
