@@ -10,6 +10,7 @@
 
 Customer.destroy_all
 Request.destroy_all
+FreightCapacity.destroy_all
 # Shipment.destroy_all
 
 password = Faker::Internet.password(8)

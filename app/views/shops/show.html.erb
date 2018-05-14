@@ -17,8 +17,12 @@
 
               </h4>
               <h4 class="col-xs-12">
-                Service Value:
-
+                Total Service Value:
+                <% sum = 0 %>
+                <% @shop.freight_capacities.each do |v| %>
+                    <% sum += v.volume * 1000 %>
+                <% end %>
+                € <%= sum %>
               </h4>
 
     </div>

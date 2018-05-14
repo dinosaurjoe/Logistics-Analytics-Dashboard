@@ -8,6 +8,7 @@ class FreightCapacity < ApplicationRecord
   def value
     @freight_capacity = self
 
-    @freight_capacity.service_value = @freight_capacity.volume * 1181.04
+    @freight_capacity.service_value = (@freight_capacity.volume * 1181.04)
+
   end
 end
