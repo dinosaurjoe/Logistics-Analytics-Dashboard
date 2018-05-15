@@ -64,7 +64,7 @@ end
 requests = Request.all
 
 requests.each do |request|
-  fr =  f = FreightCapacity.new(
+  fr = FreightCapacity.new(
         shippable_id: request.id,
         shippable_type: "Request",
         transportation_type: TRANSPORTATION_TYPE.sample,
