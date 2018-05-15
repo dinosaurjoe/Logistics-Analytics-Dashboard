@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  belongs_to :locatable
+  belongs_to :locatable, polymorphic: true
 end
