@@ -41,7 +41,7 @@
               <td><%= number_to_currency(request.proposal) %></td>
               <td style="text-align: center;">
               </td>
-              <td><%= link_to "Freight Capacity", shop_request_freight_capacity_path(@shop, request.id, request.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
+              <td><%= link_to "Freight Capacity", user_request_freight_capacity_path(current_user, request.id, request.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
             </tr>
           <% end %>
     </tbody>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
        get 'accepted'
        get 'pending'
       end
+
+      resources :freight_capacities
     end
   end
 
