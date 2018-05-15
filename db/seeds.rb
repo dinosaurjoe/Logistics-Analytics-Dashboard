@@ -77,7 +77,8 @@ shipments = Shipment.all
 
 shipments.each do |shipment|
         f = FreightCapacity.new(
-        shipment_id: shipment.id,
+        shippable_id: shipment.id,
+        shippable_type: "Shipment",
         transportation_type: TRANSPORTATION_TYPE.sample,
         container_size: CONTAINER_SIZE.sample,
         volume: rand(VOLUME),
