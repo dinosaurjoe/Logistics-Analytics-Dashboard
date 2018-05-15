@@ -2,7 +2,7 @@ class Request < ApplicationRecord
   belongs_to :customer
   belongs_to :user
 
-  attr_reader :status
+  attr_accessor :status
 
 
   def status

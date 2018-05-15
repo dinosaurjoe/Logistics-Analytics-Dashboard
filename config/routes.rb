@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :requests do
       collection do
        get 'declined'
+       get 'accepted'
+       get 'pending'
       end
     end
   end

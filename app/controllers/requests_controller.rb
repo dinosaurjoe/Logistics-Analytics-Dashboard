@@ -1,7 +1,6 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :set_status, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :find_user
-  #before_action :set_status
   #skip_after_action :verify_authorized
 
   def index
@@ -11,6 +10,14 @@ class RequestsController < ApplicationController
 
   def declined
     @requests = @user.requests.all.where(status: 'Declined')
+  end
+
+  def accepted
+    @requests = @user.requests.all.where(status: 'Accepted')
+  end
+
+  def pending
+    @requests = @user.requests.all.where(status: 'Pending')
   end
 
   def show
@@ -64,6 +71,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:user_confirmation, :customer_confirmation, :message, :created_by, :proposal)
+    params.require(:request).permit(:user_confirmation, :customer_confirmation, :message, :created_by, :proposal, :status)
   end
 end
