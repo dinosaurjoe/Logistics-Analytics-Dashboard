@@ -40,6 +40,7 @@ gem 'pundit'
 
 gem 'faker'
 gem 'chartkick'
+gem 'geocoder'
 
 
 
