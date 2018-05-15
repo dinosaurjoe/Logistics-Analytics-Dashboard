@@ -16,6 +16,12 @@ Rails.application.routes.draw do
 
   resources :shops do
       resources :shipments do
+        collection  do
+          get 'complete'
+          get 'open'
+          get 'received'
+        end
+
         resources :freight_capacities
       end
       devise_for :customers, path: 'customers', controllers: {sessions: 'customers/sessions', registrations: 'customers/registrations'}

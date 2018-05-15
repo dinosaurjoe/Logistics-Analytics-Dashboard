@@ -5,9 +5,17 @@
         <h3>Your Shipments</h3>
     </div>
     <div class="col-xs-4">
-      <h5>Complete</h5>
-      <h5>Open</h5>
-      <h5>Received</h5>
+        <h4>Amount: <%= @shipments.count %></h4>
+        <h5>
+            <%= link_to "All", shop_shipments_path(@shop), remote: true%>
+        </h5>
+          <%= link_to "Completed", complete_shop_shipments_path(@shop), remote: true%>
+        <h5>
+          <%= link_to "Open", open_shop_shipments_path(@shop), remote: true%>
+        </h5>
+        <h5>
+          <%= link_to "Received", received_shop_shipments_path(@shop), remote: true%>
+        </h5>
     </div>
   </div>
   <table class="table">

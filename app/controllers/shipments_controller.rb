@@ -5,12 +5,19 @@ class ShipmentsController < ApplicationController
 
   def index
     @shipments = @shop.shipments
-      respond_to do |format|
-         format.js  #-> app/views/controller/index.js.erb
-         format.html
-      end
   end
 
+  def complete
+    @shipments = @shop.shipments.where(status: 'Completed')
+  end
+
+  def open
+    @shipments = @shop.shipments.where(status: 'Open')
+  end
+
+  def received
+    @shipments = @shop.shipments.where(status: 'Received')
+  end
   def show
   end
 
