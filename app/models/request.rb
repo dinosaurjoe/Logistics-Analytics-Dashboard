@@ -2,6 +2,8 @@ class Request < ApplicationRecord
   belongs_to :customer
   belongs_to :user
   has_one :freight_capacity, as: :shippable
+  has_one :location, as: :locatable
+  has_one :destination, as: :destinable
 
   after_create :set_status
 

@@ -12,6 +12,8 @@ Customer.destroy_all
 Request.destroy_all
 FreightCapacity.destroy_all
 Shipment.destroy_all
+Location.destroy_all
+Destination.destroy_all
 
 password = Faker::Internet.password(8)
 OCCUPATION = ["Logistics Manager", "Supplier", "Logistics Assistant", "Sales"]
@@ -21,10 +23,8 @@ VOLUME = (1..43)
 REQUEST_PROPOSAL = (1200..8000)
 REQUEST_BOOLEAN = [true, false]
 SHIPMENT_STATUS = ["Received", "Open", "Completed"]
-SHIPMENT_ORIGIN = ["Shanghai", "Singapore", "Shenzen", "Ningbo-Zhoushan", "Hong Kong", "Busan",
-                   "Qingdao", "Guangzhou Harbor", "Jebel Ali", "Tianjin", "Rotterdam", "Port Klang"]
-SHIPMENT_DESTINATION = ["Kaohsiung", "Antwerp", "Dalian", "Xiamen", "Tanjung Pelepas", "Hamburg", "Los Angeles",
-                        "Keihin Ports", "Long Beach", "Laem Chabang", "New York", "Bremen"]
+SHIPMENT_ORIGIN = ["Mexico City", "Paris", "Chicago", "Tokyo"]
+SHIPMENT_DESTINATION = [ "Singapore", "New York", "Hong Kong", "London"]
 TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]
 CONTAINER_SIZE = ["LCL (Less-than Container Load)", "20' Container", "40' Container", "45' High Cube"]
 
@@ -79,8 +79,6 @@ requests.each do |request|
   s = Shipment.new(
     shop_id: User.first.shops.first.id,
     status: SHIPMENT_STATUS.sample,
-    origin: SHIPMENT_ORIGIN.sample,
-    destination: SHIPMENT_DESTINATION.sample
     )
 
   s.save
@@ -94,8 +92,29 @@ shipments.each do |shipment|
         shippable_type: "Shipment",
         transportation_type: TRANSPORTATION_TYPE.sample,
         container_size: CONTAINER_SIZE.sample,
-        volume: rand(VOLUME),
+        volume: rand(VOLUME)
       )
 
     f.save
+
+      l = Location.new(
+        locatable_id: shipment.id,
+        locatable_type: "Shipment",
+        address: SHIPMENT_ORIGIN.sample
+        )
+
+      l.save
+
+      d = Destination.new(
+        destinable_id: shipment.id,
+        destinable_type: "Shipment",
+        address: SHIPMENT_DESTINATION.sample
+        )
+
+      d.save
+
   end
+
+
+
+

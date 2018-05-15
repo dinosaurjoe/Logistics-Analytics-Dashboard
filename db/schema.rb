@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515131625) do
+ActiveRecord::Schema.define(version: 20180515185714) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20180515131625) do
     t.index ["shop_id"], name: "index_customers_on_shop_id"
   end
 
+  create_table "destinations", force: :cascade do |t|
+    t.string "destinable_type"
+    t.integer "destinable_id"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destinable_type", "destinable_id"], name: "index_destinations_on_destinable_type_and_destinable_id"
+  end
+
   create_table "freight_capacities", force: :cascade do |t|
     t.string "transportation_type"
     t.string "container_size"
@@ -45,6 +56,17 @@ ActiveRecord::Schema.define(version: 20180515131625) do
     t.string "shippable_type"
     t.integer "shippable_id"
     t.index ["shippable_type", "shippable_id"], name: "index_freight_capacities_on_shippable_type_and_shippable_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "locatable_type"
+    t.integer "locatable_id"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable_type_and_locatable_id"
   end
 
   create_table "requests", force: :cascade do |t|
