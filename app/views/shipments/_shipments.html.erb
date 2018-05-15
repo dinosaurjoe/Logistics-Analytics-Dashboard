@@ -28,7 +28,6 @@
         <th style="text-align: center;">Volume</th>
         <th style="text-align: center;">Service Value</th>
         <th style="text-align: center;">Freight Info</th>
-        <th style="text-align: center;">Actions</th>
       </tr>
     </thead>
     <tbody id="shipmentList">
@@ -41,11 +40,6 @@
               <td><%= shipment.freight_capacity.volume %></td>
               <td><%= number_to_currency(shipment.freight_capacity.service_value) %></td>
               <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
-
-              <td style="text-align: center;">
-                <%= link_to "Edit", edit_shop_shipment_path(@shop, shipment) %>
-                <%= link_to "Delete", shop_shipment_path(@shop, shipment), method: :delete, data: { confirm: 'Delete Shop and its information?' } %>
-              </td>
             </tr>
           <% end %>
     </tbody>
