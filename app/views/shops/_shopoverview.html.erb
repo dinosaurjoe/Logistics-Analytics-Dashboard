@@ -1,5 +1,29 @@
-<h1>Shipments</h1>
-<%= pie_chart [["Complete", @shop.shipments.where(status: 'Completed').count],
-["Open", @shop.shipments.where(status: 'Open').count], ["Received", @shop.shipments.where(status: 'Received').count]],
-id: 'shipment-pie', donut: true,
-library: { animation: { easing: 'easeOutQuad' }} %>
+<div class="shopoverview-container col-xs-12">
+  <div class="data-categories col-xs-12 col-sm-4">
+    <ul class="graph-list">
+      <li>
+        Shipment Status
+      </li>
+      <li>
+        Top Routes
+      </li>
+      <li>
+        Top Origins
+      </li>
+      <li>
+        Top Destinations
+      </li>
+      <li>
+
+      </li>
+    </ul>
+  </div>
+  <div class="graphs-container col-xs-12 col-sm-8">
+    <%= pie_chart [["Complete", @shop.shipments.where(status: 'Completed').count],
+    ["Open", @shop.shipments.where(status: 'Open').count], ["Received", @shop.shipments.where(status: 'Received').count]],
+    id: 'shipment-pie', donut: true,
+    library: { animation: { easing: 'easeOutQuad' }} %>
+
+  </div>
+</div>
+

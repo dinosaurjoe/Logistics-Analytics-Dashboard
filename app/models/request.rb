@@ -3,9 +3,9 @@ class Request < ApplicationRecord
   belongs_to :user
   has_one :freight_capacity, as: :shippable
 
-  after_create :status
+  after_create :set_status
 
-  def status
+  def set_status
     @request = self
 
     @customer_confirmation = @request.customer_confirmation
@@ -18,6 +18,8 @@ class Request < ApplicationRecord
     else
       @request.status = "Declined"
     end
+
+    @request.save!
   end
 
 
