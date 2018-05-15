@@ -37,6 +37,9 @@
             <%= link_to "User Profile", dashboard_path%>
           </li>
           <li class="col-xs-12 shipment-button">
+            <%= link_to "Shop Overview", shop_path(@shop), remote: true%>
+          </li>
+          <li class="col-xs-12 shipment-button">
             <%= link_to "Shipment Overview", shop_shipments_path(@shop), remote: true%>
           </li>
           <li class="col-xs-12">
