@@ -26,6 +26,9 @@ Rails.application.routes.draw do
           get 'complete'
           get 'open'
           get 'received'
+          get 'air'
+          get 'ocean'
+          get 'rail'
         end
 
         resources :freight_capacities

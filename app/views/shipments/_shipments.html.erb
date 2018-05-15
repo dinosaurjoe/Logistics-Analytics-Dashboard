@@ -26,6 +26,25 @@
           </li>
         </ul>
     </div>
+    <div class="col-xs-12">
+        <ul class="col-xs-12 horizontal-list">
+          <li>
+            Transportation Type:
+          </li>
+          <li>
+            <%= link_to "All", shop_shipments_path(@shop), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Air", air_shop_shipments_path(@shop), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Rail", rail_shop_shipments_path(@shop), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Ocean", ocean_shop_shipments_path(@shop), remote: true%>
+          </li>
+        </ul>
+    </div>
   </div>
   <table class="table">
     <thead>
@@ -48,7 +67,7 @@
               <td><%= shipment.destination.address %></td>
               <td><%= shipment.freight_capacity.volume %></td>
               <td><%= number_to_currency(shipment.freight_capacity.service_value) %></td>
-              <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
+              <td><%= link_to "Freight Info", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
             </tr>
           <% end %>
     </tbody>
