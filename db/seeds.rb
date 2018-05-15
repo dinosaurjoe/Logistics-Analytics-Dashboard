@@ -12,6 +12,8 @@ Customer.destroy_all
 Request.destroy_all
 FreightCapacity.destroy_all
 Shipment.destroy_all
+Location.destroy_all
+Destination.destroy_all
 
 password = Faker::Internet.password(8)
 OCCUPATION = ["Logistics Manager", "Supplier", "Logistics Assistant", "Sales"]
@@ -79,8 +81,6 @@ requests.each do |request|
   s = Shipment.new(
     shop_id: User.first.shops.first.id,
     status: SHIPMENT_STATUS.sample,
-    origin: SHIPMENT_ORIGIN.sample,
-    destination: SHIPMENT_DESTINATION.sample
     )
 
   s.save
@@ -94,8 +94,29 @@ shipments.each do |shipment|
         shippable_type: "Shipment",
         transportation_type: TRANSPORTATION_TYPE.sample,
         container_size: CONTAINER_SIZE.sample,
-        volume: rand(VOLUME),
+        volume: rand(VOLUME)
       )
 
     f.save
+
+      l = Location.new(
+        locatable_id: shipment.id,
+        locatable_type: "Shipment",
+        address: SHIPMENT_ORIGIN.sample
+        )
+
+      l.save
+
+      d = Destination.new(
+        destinable_id: shipment.id,
+        destinable_type: "Shipment",
+        address: SHIPMENT_DESTINATION.sample
+        )
+
+      d.save
+
   end
+
+
+
+

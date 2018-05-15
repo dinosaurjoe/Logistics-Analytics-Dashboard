@@ -44,8 +44,8 @@
             <tr>
               <th scope="row"><%= index + 1 %></th>
               <td><%= shipment.status %></td>
-              <td><%= shipment.origin %></td>
-              <td><%= shipment.destination %></td>
+              <td><%= shipment.location.address %></td>
+              <td><%= shipment.destination.address %></td>
               <td><%= shipment.freight_capacity.volume %></td>
               <td><%= number_to_currency(shipment.freight_capacity.service_value) %></td>
               <td><%= link_to "Freight Capacity", shop_shipment_freight_capacity_path(@shop, shipment.id, shipment.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>

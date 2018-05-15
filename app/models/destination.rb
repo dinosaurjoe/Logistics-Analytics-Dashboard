@@ -1,5 +1,5 @@
-class Location < ApplicationRecord
-  belongs_to :locatable, polymorphic: true
+class Destination < ApplicationRecord
+  belongs_to :destinable, polymorphic: true
 
 
   # geocoded_by :address
