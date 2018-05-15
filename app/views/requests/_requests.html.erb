@@ -2,22 +2,29 @@
   <div class="shipment-top">
     <div class="col-xs-4">
         <h3>Booking Requests</h3>
-        <div class="col-xs-4">
-        <h4>Amount: <%= @requests.count %></h4>
-        <h5>
-            <%= link_to "All", user_requests_path(current_user.id), remote: true%>
-        </h5>
-          <%= link_to "Accepted", accepted_user_requests_path(current_user.id), remote: true%>
-        <h5>
-          <%= link_to "Pending", pending_user_requests_path(current_user.id), remote: true%>
-        </h5>
-        <h5>
-          <%= link_to "Declined", declined_user_requests_path(current_user.id), remote: true%>
-        </h5>
-    </div>
-    </div>
-
   </div>
+  <div class="col-xs-12">
+        <ul class="col-xs-12 horizontal-list">
+          <li>
+            Status:
+          </li>
+          <li>
+            <%= link_to "All", user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+          <%= link_to "Accepted", accepted_user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+          <%= link_to "Pending", pending_user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+          <%= link_to "Declined", declined_user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li style="float:right">
+            Amount: <%= @requests.count %>
+          </li>
+        </ul>
+    </div>
   <table class="table">
     <thead>
       <tr>

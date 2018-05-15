@@ -3,6 +3,8 @@ class Request < ApplicationRecord
   belongs_to :user
   has_one :freight_capacity, as: :shippable
 
+  after_create :status
+
   def status
     @request = self
 
