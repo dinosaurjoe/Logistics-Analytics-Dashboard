@@ -20,3 +20,12 @@
 .shipment-top {
   padding-bottom: 85px;
 }
+
+ul.horizontal-list {
+  list-style: none;
+  padding-top: 20px;
+  }
+  ul.horizontal-list li {
+    display: inline;
+    padding-left: 20px;
+  }
