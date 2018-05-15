@@ -1,6 +1,7 @@
 class Request < ApplicationRecord
   belongs_to :customer
   belongs_to :user
+  has_one :freight_capacity, as: :shippable
 
   def status
     @request = self

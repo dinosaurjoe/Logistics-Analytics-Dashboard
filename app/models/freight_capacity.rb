@@ -1,5 +1,5 @@
 class FreightCapacity < ApplicationRecord
-  belongs_to :shipment
+  belongs_to :shippable, polymorphic: true
   attr_accessor :service_value
 
   TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]
