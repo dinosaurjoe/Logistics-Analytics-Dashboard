@@ -1,13 +1,24 @@
 class ShopsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_shop, only: [:show, :edit, :update, :destroy]
-
+  before_action :partials, only: [:destination, :origin, :shipmentsgraph]
   def index
     @shops = current_user.shops
   end
 
   def show
+    @shipments = @shop.shipments
+  end
 
+  def destination
+    @shipments = @shop.shipments
+  end
+
+  def origin
+    @shipments = @shop.shipments
+  end
+
+  def shipmentsgraph
     @shipments = @shop.shipments
   end
 
@@ -57,6 +68,10 @@ class ShopsController < ApplicationController
   def find_shop
     @shop = Shop.find(params[:id])
     authorize @shop
+  end
+
+  def partials
+    @shop = Shop.find(params[:shop_id])
   end
 
   def shop_params

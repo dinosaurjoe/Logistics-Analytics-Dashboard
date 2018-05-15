@@ -2,28 +2,21 @@
   <div class="data-categories col-xs-12 col-sm-4">
     <ul class="graph-list">
       <li>
-        Shipment Status
-      </li>
-      <li>
-        Top Routes
-      </li>
-      <li>
-        Top Origins
-      </li>
-      <li>
-        Top Destinations
-      </li>
-      <li>
+        <%= link_to 'Shipments Status', shop_shipmentsgraph_path(@shop.id), remote: true %>
 
+        </li>
+      <li>
+        <%= link_to 'Top Origins', shop_origin_path(@shop.id), remote: true %>
+
+        </li>
+      </li>
+      <li>
+        <%= link_to 'Top Destinations', shop_destination_path(@shop.id), remote: true %>
       </li>
     </ul>
   </div>
   <div class="graphs-container col-xs-12 col-sm-8">
-    <%= pie_chart [["Complete", @shop.shipments.where(status: 'Completed').count],
-    ["Open", @shop.shipments.where(status: 'Open').count], ["Received", @shop.shipments.where(status: 'Received').count]],
-    id: 'shipment-pie', donut: true,
-    library: { animation: { easing: 'easeOutQuad' }} %>
-
+        <%= render :partial => "shipmentsgraph"%>
   </div>
 </div>
 

@@ -1,0 +1,4 @@
+    <%= pie_chart [["Complete", @shop.shipments.where(status: 'Completed').count],
+    ["Open", @shop.shipments.where(status: 'Open').count], ["Received", @shop.shipments.where(status: 'Received').count]],
+    id: 'shipment-pie', donut: true,
+    library: { animation: { easing: 'easeOutQuad' }} %>

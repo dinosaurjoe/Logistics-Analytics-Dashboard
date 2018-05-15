@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
+    get 'destination'
+    get 'origin'
+    get 'shipmentsgraph'
+
       resources :shipments do
         collection  do
           get 'complete'

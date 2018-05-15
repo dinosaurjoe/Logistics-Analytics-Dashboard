@@ -23,10 +23,8 @@ VOLUME = (1..43)
 REQUEST_PROPOSAL = (1200..8000)
 REQUEST_BOOLEAN = [true, false]
 SHIPMENT_STATUS = ["Received", "Open", "Completed"]
-SHIPMENT_ORIGIN = ["Shanghai", "Singapore", "Shenzen", "Ningbo-Zhoushan", "Hong Kong", "Busan",
-                   "Qingdao", "Guangzhou Harbor", "Jebel Ali", "Tianjin", "Rotterdam", "Port Klang"]
-SHIPMENT_DESTINATION = ["Kaohsiung", "Antwerp", "Dalian", "Xiamen", "Tanjung Pelepas", "Hamburg", "Los Angeles",
-                        "Keihin Ports", "Long Beach", "Laem Chabang", "New York", "Bremen"]
+SHIPMENT_ORIGIN = ["Mexico City", "Paris", "Chicago", "Tokyo"]
+SHIPMENT_DESTINATION = [ "Singapore", "New York", "Hong Kong", "London"]
 TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]
 CONTAINER_SIZE = ["LCL (Less-than Container Load)", "20' Container", "40' Container", "45' High Cube"]
 
