@@ -2,9 +2,6 @@ class Request < ApplicationRecord
   belongs_to :customer
   belongs_to :user
 
-  attr_accessor :status
-
-
   def status
     @request = self
 
@@ -18,6 +15,8 @@ class Request < ApplicationRecord
     else
       @request.status = "Declined"
     end
+
+    # @request.save!
   end
 
 
