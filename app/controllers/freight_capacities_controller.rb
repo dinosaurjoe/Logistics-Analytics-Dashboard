@@ -1,6 +1,6 @@
 class FreightCapacitiesController < ApplicationController
   before_action :find_freight_capacity
-  before_action :find_shipment
+  before_action :find_freight_type
 
 
   def show
@@ -11,8 +11,12 @@ class FreightCapacitiesController < ApplicationController
   end
 
 private
-  def find_shipment
-    @shipment = Shipment.find(params[:shipment_id])
+  def find_freight_type
+    if @freight_capacity.shippable_type === "Shipment"
+        @shipment = Shipment.find(params[:shipment_id])
+    else
+       @request = Request.find(params[:request_id])
+    end
   end
 
   def find_freight_capacity

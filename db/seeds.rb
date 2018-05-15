@@ -61,6 +61,19 @@ end
 
 end
 
+requests = Request.all
+
+requests.each do |request|
+  fr = FreightCapacity.new(
+        shippable_id: request.id,
+        shippable_type: "Request",
+        transportation_type: TRANSPORTATION_TYPE.sample,
+        container_size: CONTAINER_SIZE.sample,
+        volume: rand(VOLUME),
+      )
+  fr.save
+  end
+
 
 20.times do
   s = Shipment.new(
@@ -77,7 +90,8 @@ shipments = Shipment.all
 
 shipments.each do |shipment|
         f = FreightCapacity.new(
-        shipment_id: shipment.id,
+        shippable_id: shipment.id,
+        shippable_type: "Shipment",
         transportation_type: TRANSPORTATION_TYPE.sample,
         container_size: CONTAINER_SIZE.sample,
         volume: rand(VOLUME),

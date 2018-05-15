@@ -26,6 +26,7 @@
         <th style="text-align: center;">Customer</th>
         <th style="text-align: center;">Confirmation</th>
         <th style="text-align: center;">Freight Rate</th>
+        <th style="text-align: center;">Freight Capacity</th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +41,7 @@
               <td><%= number_to_currency(request.proposal) %></td>
               <td style="text-align: center;">
               </td>
+              <td><%= link_to "Freight Capacity", user_request_freight_capacity_path(current_user, request.id, request.freight_capacity.id), { :remote => true, 'data-toggle' => 'modal', 'data-target' => "#exampleModal" } %></td>
             </tr>
           <% end %>
     </tbody>
