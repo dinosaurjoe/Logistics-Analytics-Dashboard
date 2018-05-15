@@ -15,8 +15,6 @@ class Request < ApplicationRecord
     else
       @request.status = "Declined"
     end
-
-    # @request.save!
   end
 
 
