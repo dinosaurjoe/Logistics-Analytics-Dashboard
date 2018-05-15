@@ -39,6 +39,7 @@ gem 'autoprefixer-rails'
 gem 'pundit'
 
 gem 'faker'
+gem 'chartkick'
 
 
 
