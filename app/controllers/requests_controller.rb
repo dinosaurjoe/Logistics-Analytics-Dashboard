@@ -20,6 +20,18 @@ class RequestsController < ApplicationController
     @requests = @user.requests.all.where(status: 'Pending')
   end
 
+  def air
+    @requests = @user.requests.joins(:freight_capacity).where(:freight_capacities => {:transportation_type => "Air Freight"})
+  end
+
+  def rail
+    @requests = @user.requests.joins(:freight_capacity).where(:freight_capacities => {:transportation_type => "Rail Freight"})
+  end
+
+  def ocean
+    @requests = @user.requests.joins(:freight_capacity).where(:freight_capacities => {:transportation_type => "Ocean Freight"})
+  end
+
   def show
     @request = Request.find(params[:id])
     @request.status(current_customer)
