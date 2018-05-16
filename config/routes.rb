@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'destination'
     get 'origin'
     get 'shipmentsgraph'
+    get 'customercreated'
 
       resources :shipments do
         collection  do
@@ -37,7 +38,13 @@ Rails.application.routes.draw do
         resources :freight_capacities
       end
       devise_for :customers, path: 'customers', controllers: {sessions: 'customers/sessions', registrations: 'customers/registrations'}
-      resources :customers, only: [:index]
+      resources :customers do
+        collection do
+          get 'oldest'
+          get 'newest'
+          get 'mostactive'
+        end
+      end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "dashboard#index", as: 'dashboard'

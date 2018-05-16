@@ -3,10 +3,18 @@ class CustomersController < ApplicationController
 
   def index
     @customers = @shop.customers
-      respond_to do |format|
-         format.js  #-> app/views/controller/index.js.erb
-         format.html
-      end
+  end
+
+  def oldest
+    @customers = @shop.customers.order(:created_at).reverse
+  end
+
+  def newest
+    @customers = @shop.customers.order(:created_at)
+  end
+
+  def mostactive
+    @customers = @shop.customers.order('requests_count DESC')
   end
 
   private

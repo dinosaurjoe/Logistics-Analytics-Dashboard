@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515185714) do
+ActiveRecord::Schema.define(version: 20180516034631) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180515185714) do
     t.datetime "updated_at", null: false
     t.string "occupation"
     t.string "images"
+    t.integer "requests_count", default: 0
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
     t.index ["shop_id"], name: "index_customers_on_shop_id"

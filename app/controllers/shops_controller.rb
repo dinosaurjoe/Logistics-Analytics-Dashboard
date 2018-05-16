@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_shop, only: [:show, :edit, :update, :destroy]
-  before_action :partials, only: [:destination, :origin, :shipmentsgraph]
+  before_action :partials, only: [:destination, :origin, :shipmentsgraph, :customercreated]
   def index
     @shops = current_user.shops
   end
@@ -20,6 +20,10 @@ class ShopsController < ApplicationController
 
   def shipmentsgraph
     @shipments = @shop.shipments
+  end
+
+  def customercreated
+    @customers = @shop.customers
   end
 
   def edit
