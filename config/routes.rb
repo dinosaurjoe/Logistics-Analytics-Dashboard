@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'destination'
     get 'origin'
     get 'shipmentsgraph'
+    get 'customercreated'
 
       resources :shipments do
         collection  do
