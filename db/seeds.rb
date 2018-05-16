@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # require "yaml"
 # require "open-uri"
-
+User.destroy_all
+Shop.destroy_all
 Customer.destroy_all
 Request.destroy_all
 FreightCapacity.destroy_all
@@ -28,6 +29,21 @@ SHIPMENT_DESTINATION = [ "Singapore", "New York", "Hong Kong", "London"]
 TRANSPORTATION_TYPE = ["Air Freight", "Ocean Freight", "Rail Freight"]
 CONTAINER_SIZE = ["LCL (Less-than Container Load)", "20' Container", "40' Container", "45' High Cube"]
 
+john = User.new(
+  email: "email@gmail.com",
+  password: "password",
+  first_name: "John",
+  last_name: "Cargo",
+  occupation: "Logistics Manager",
+  )
+
+john.save!
+
+shop1 = Shop.new(
+  user_id: john.id,
+  name: "John's Shop"
+    )
+shop1.save!
 
 5.times do
   c = Customer.new(
