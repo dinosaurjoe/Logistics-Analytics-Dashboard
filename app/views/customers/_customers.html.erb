@@ -4,7 +4,25 @@
     <div class="col-xs-4">
         <h3>Your Customers</h3>
     </div>
-
+    <div class="col-xs-12">
+        <ul class="col-xs-12 horizontal-list">
+          <li>
+            Sort By:
+          </li>
+          <li>
+            <%= link_to "Newest", newest_shop_customers_path(@shop), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Oldest", oldest_shop_customers_path(@shop), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Activity", mostactive_shop_customers_path(@shop), remote: true%>
+          </li>
+          <li style="float:right">
+            Amount: <%= @customers.count %>
+          </li>
+        </ul>
+    </div>
   </div>
   <table class="table">
     <thead>
@@ -12,7 +30,7 @@
         <th></th>
         <th style="text-align: center;">Name</th>
         <th style="text-align: center;">Occupation</th>
-        <th style="text-align: center;">Total Transactions</th>
+        <th style="text-align: center;">Total Booking Requests</th>
       </tr>
     </thead>
     <tbody id="shipmentList">

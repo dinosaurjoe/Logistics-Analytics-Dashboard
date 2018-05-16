@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
-  belongs_to :customer
+  belongs_to :customer, counter_cache: true
   belongs_to :user
   has_one :freight_capacity, as: :shippable
   has_one :location, as: :locatable
