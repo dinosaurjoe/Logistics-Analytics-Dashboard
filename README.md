@@ -1,24 +1,25 @@
-# README
+# ItsMyCargo Shipping Analytics Dashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was created for ItsMyCargo as a tech assignment.
 
-Things you may want to cover:
+This project was created using rails version 5.1.6
 
-* Ruby version
+In order to test this code yourself, after cloning it from this repository, please run:
 
-* System dependencies
+* bundle install
 
-* Configuration
+* rails db:migrate
 
-* Database creation
+* rails db:seed
 
-* Database initialization
+* rails s
 
-* How to run the test suite
+To log on after to see the site with data, please enter the following
 
-* Services (job queues, cache servers, search engines, etc.)
+Email:
+* email@gmail.com
 
-* Deployment instructions
+Password:
+* password
 
-* ...
+If you have any questions, please feel free to reach out to me.

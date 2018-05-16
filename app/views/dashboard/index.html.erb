@@ -2,7 +2,7 @@
   <div class="data-list col-xs-6 col-sm-4 col-md-3">
 
     <div class="avatar-background col-xs-12">
-        <img class="avatar-large" src="https://randomuser.me/api/portraits/men/90.jpg" alt="">
+        <img class="avatar-large" src="https://randomuser.me/api/portraits/men/7.jpg" alt="">
     </div>
 
     <div class="user-box col-xs-12">
@@ -21,11 +21,6 @@
 
     </div>
     <div class="data-options col-xs-12">
-        <ul>
-            <li class="col-xs-12 shipment-button">
-              <%= link_to "Create New Shop", new_shop_path %>
-            </li>
-        </ul>
     </div>
   </div>
   <div class="data shops col-xs-6 col-sm-8 col-md-9">
@@ -45,12 +40,18 @@
                       </h2>
                       <p>
                         Freight Capacity:
-
+                        <% total = 0 %>
+                        <% shop.shipments.each do |shipment|%>
+                        <% total += shipment.freight_capacity.volume %>
+                        <% end %>
+                        <%= total %>
                       </p>
-                      <p>
-                        Service Value:
-
-                      </p>
+                        <% value = 0 %>
+                        Total Service Value:
+                        <% shop.shipments.each do |shipment|%>
+                        <% value += shipment.freight_capacity.service_value %>
+                        <% end %>
+                        <%= number_to_currency(value) %>
                     </div>
                 </div>
             </div>
