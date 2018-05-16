@@ -7,23 +7,18 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shipments = @shop.shipments
   end
 
   def destination
-    @shipments = @shop.shipments
   end
 
   def origin
-    @shipments = @shop.shipments
   end
 
   def shipmentsgraph
-    @shipments = @shop.shipments
   end
 
   def customercreated
-    @customers = @shop.customers
   end
 
   def edit
