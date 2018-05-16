@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :requests do
       collection do
-       get 'declined'
-       get 'accepted'
-       get 'pending'
+        get 'declined'
+        get 'accepted'
+        get 'pending'
+        get 'air'
+        get 'ocean'
+        get 'rail'
       end
 
       resources :freight_capacities

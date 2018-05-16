@@ -25,6 +25,25 @@
           </li>
         </ul>
     </div>
+    <div class="col-xs-12">
+        <ul class="col-xs-12 horizontal-list">
+          <li>
+            Transportation Type:
+          </li>
+          <li>
+            <%= link_to "All", user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Air", air_user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Rail", rail_user_requests_path(current_user.id), remote: true%>
+          </li>
+          <li>
+            <%= link_to "Ocean", ocean_user_requests_path(current_user.id), remote: true%>
+          </li>
+        </ul>
+    </div>
   <table class="table">
     <thead>
       <tr>
